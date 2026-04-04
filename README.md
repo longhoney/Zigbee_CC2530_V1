@@ -3,3 +3,5 @@ Truyền thông giữa Vietduino ESP32, Arduino Uno R3 SMD và Maixduino (ESP32)
 Vietduino ESP32 giao tiếp TTL 3v3. Uno giao tiếp TTL 5v. Zigbee CC2530 V1 giao tiếp TTL 3v3/5v (Tùy VCC)
 
 Zigbee giao tiếp UART với các vi điều khiển. Chọn baudrate: 19200, số kênh tùy theo chương trình mẫu, chế độ truyền tùy theo chương trình mẫu.
+
+Tham khảo chương trình SoftwareSerialExample: Nếu Serial rảnh (sau khi đọc xong dữ liệu nhập vào ô nhập liệu), mySerial sẽ viết nội dung mà Serial "đã" đọc được.
