@@ -1,40 +1,43 @@
-//Vietduino ESP32 truyen du lieu LDR qua Zigbee CC2530 V1
+/*********
+  Rui Santos & Sara Santos - Random Nerd Tutorials
+  Complete instructions at https://RandomNerdTutorials.com/esp32-neo-6m-gps-module-arduino/
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files.
+  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*********/
 
-#include <SoftwareSerial.h>
+// Define the RX and TX pins for Serial 2
+#define RXD2 16   //D2-IO16
+#define TXD2 17   //D3-IO17
+// Define Baudrate for UART
+#define CC2530_BAUD 19200
 
-SoftwareSerial mySerial(19, 18); // RX-D12-IO19, TX-D13-IO18
 // Đặt tên cho chân kết nối cảm biến
-const int analogInPin = 34;  // IO34-A1 on Vietduino ESP32 (A1 on MakerEdu Shield)
+#define analogInPin 34  // IO34-A1 on Vietduino ESP32 (A1 on MakerEdu Shield)
 // Tạo biến số nguyên lưu giá trị cảm biến
-int sensorValue = 0;  
+int sensorValue = 0;
 
-void setup() {// put your setup code here, to run once:
-  //Serial.begin(19200);
-  mySerial.begin(19200); //Baudrate của Zigbee CC2530V1
+// Create an instance of the HardwareSerial class for Serial 2
+HardwareSerial zigbeeSerial(2);
+
+void setup() {
+  // Serial Monitor
+  Serial.begin(19200);
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
-  mySerial.write("Start send");
-  //Serial.println("Start send");
-  
+  // Start Serial 2 with the defined RX and TX pins and a baud rate of 9600
+  zigbeeSerial.begin(CC2530_BAUD, SERIAL_8N1, RXD2, TXD2);
+  while (!zigbeeSerial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+  Serial.println("Serial 2 started at 19200 baud rate");
+  zigbeeSerial.println("Serial 2 received at 19200 baud rate");
 }
 
-void loop() { // put your main code here, to run repeatedly:
+void loop() {
   // Đọc giá trị cảm biến
   sensorValue = analogRead(analogInPin);
-  /*
-  // Hiển thị giá trị đo được của cảm biến lên máy tính.
-  Serial.print("Value: ");
-  Serial.println(sensorValue)
-
-  if (mySerial.available()) {
-    Serial.write(mySerial.read());
-  }
-  if (Serial.available()) {
-    mySerial.write(Serial.read());
-  }
-  */
-  mySerial.write("Value: "); mySerial.write(sensorValue);  mySerial.write('\n');
-  //Nghỉ 2s
+  //Truyền dữ liệu qua Zigbee
+  zigbeeSerial.print("Value: "); zigbeeSerial.println(sensorValue);
   delay(2000);
 }
