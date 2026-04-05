@@ -14,7 +14,7 @@ int ledState = LOW;  // ledState used to set the LED
 // The value will quickly become too large for an int to store
 unsigned long previousMillis = 0;  // will store last time LED was updated
 // constants won't change:
-const long interval = 2000;  // interval at which to blink (milliseconds)
+const long interval = 1000;  // interval at which to blink (milliseconds)
 
 // Đặt tên cho chân kết nối cảm biến
 #define analogInPin 34  // IO34-A1 on Vietduino ESP32 (A1 on MakerEdu Shield)
@@ -54,13 +54,14 @@ void loop() {
     if (ledState == LOW) {
       ledState = HIGH;
       //Truyen du lieu den Uno
-      if (zigbeeSerial.availableForWrite()){    //Neu chon ham while, ESP32 se gui du lieu lien tuc trong 2 giay
+      if (zigbeeSerial.availableForWrite()){    //Neu chon ham while, ESP32 se gui du lieu lien tuc trong 1 giay
         zigbeeSerial.print("Value: "); zigbeeSerial.println(sensorValue);
       }
       
     } else {
       ledState = LOW;
-       if (zigbeeSerial.available() > 0) {
+      //Nhan du lieu tu Uno
+      while (zigbeeSerial.available() > 0) {
         char inByte = zigbeeSerial.read();
         Serial.write(inByte);
       }
