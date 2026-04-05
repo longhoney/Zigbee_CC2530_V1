@@ -18,4 +18,4 @@ Chương trình Broadcast: baudrate: 19200, kênh 3, Tất cả module chọn br
   - a. Truyền dữ liệu thô
   - b. Chỉ khi bấm nút, mới nhận dữ liệu DHT11. So sánh dữ liệu để bật Module LED
 
-Arduino dùng Software Serial, nhưng ESP32 thì không. ESP32 có Zigbee và BLE.
+Arduino dùng Software Serial, nhưng ESP32 thì không. ESP32 có Zigbee và BLE. Tham khảo thêm bài viết hướng dẫn giao tiếp UART của ESP32: https://randomnerdtutorials.com/esp32-uart-communication-serial-arduino/
