@@ -1,0 +1,15 @@
+Vietduino ESP32		LDR		Zigbee
+IO34-A1			SIG
+5V			5V		
+GND			GND		GND
+RXD2-D2-IO16				TX
+TXD2-D3-IO17				RX
+3V					VCC
+
+=====================================================
+
+Uno					Zigbee
+GND					GND
+RXD-D2					TX
+TXD-D3					RX
+5V					VCC
