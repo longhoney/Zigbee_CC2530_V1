@@ -17,3 +17,5 @@ Chương trình Broadcast: baudrate: 19200, kênh 3, Tất cả module chọn br
   - Module LDR giao tiếp Analog. Module LED và Module nút nhấn giao tiếp Digital. Module DHT11 giao tiếp OneWire. Zigbee giao tiếp UART, baudrate 19200.
   - a. Truyền dữ liệu thô
   - b. Chỉ khi bấm nút, mới nhận dữ liệu DHT11. So sánh dữ liệu để bật Module LED
+
+Arduino dùng Software Serial, nhưng ESP32 thì không. ESP32 có Zigbee và BLE. Tham khảo thêm bài viết hướng dẫn giao tiếp UART của ESP32: https://randomnerdtutorials.com/esp32-uart-communication-serial-arduino/
