@@ -15,18 +15,18 @@ int ledState = LOW;  // ledState used to set the LED
 // The value will quickly become too large for an int to store
 unsigned long previousMillis = 0;  // will store last time LED was updated
 // constants won't change:
-const long interval = 1000;  // interval at which to blink (milliseconds)
+const long interval = 500;  // interval at which to blink (milliseconds)
 
 void setup() {
   // Open serial communications and wait for port to open:
-  Serial.begin(19200);
+  Serial.begin(57600);
   while (!Serial) {
     ;  // wait for serial port to connect. Needed for native USB port only
   }
   Serial.println("Uno start");
   pinMode(ledPin, OUTPUT);
   // set the data rate for the SoftwareSerial port
-  mySerial.begin(19200);
+  mySerial.begin(57600);
 }
 
 void loop() {  // run over and over
@@ -41,14 +41,21 @@ void loop() {  // run over and over
     if (ledState == LOW) {
       ledState = HIGH;
       //Nhan du lieu tu ESP32
-      while (mySerial.available() > 0) {
-        char inByte1 = mySerial.read();
-        Serial.write(inByte1);
+      while (mySerial.available()) {
+        char c = mySerial.read();
+        Serial.write(c);
       }
     } else {
       ledState = LOW;
       //Truyen du lieu den ESP32
-      mySerial.write(Serial.read());
+      
+      while (Serial.available()){
+        char d = Serial.read();
+        mySerial.write(d);
+      }
+      
+      //mySerial.write(Serial.read());
+      //mySerial.print(Serial.read());
     }
 
     // set the LED with the ledState of the variable:
