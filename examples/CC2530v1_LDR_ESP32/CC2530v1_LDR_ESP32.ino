@@ -27,16 +27,17 @@ void setup() {
   }
   // Start Serial 2 with the defined RX and TX pins and a baud rate of 9600
   zigbeeSerial.begin(CC2530_BAUD, SERIAL_8N1, RXD2, TXD2);
-  while (!zigbeeSerial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
+  delay(500);
   zigbeeSerial.println("ESP32 sent at 19200 baud rate");
 }
 
 void loop() {
+  /*
   // Đọc giá trị cảm biến
   sensorValue = analogRead(analogInPin);
   //Truyền dữ liệu qua Zigbee
+  Serial.print("Value: "); Serial.println(sensorValue);
   zigbeeSerial.print("Value: "); zigbeeSerial.println(sensorValue);
   delay(2000);
+  */
 }

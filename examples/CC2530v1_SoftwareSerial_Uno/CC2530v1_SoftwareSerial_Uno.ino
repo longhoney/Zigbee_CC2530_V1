@@ -11,16 +11,13 @@ void setup() {
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
-  while (!mySerial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
-  Serial.println("Uno received at 19200 baud rate")
+  //Serial.println("Uno received at 19200 baud rate");
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   if (mySerial.available()) {
-    Serial.println(mySerial.read());
+    Serial.write(mySerial.read());
   }
   delay(100);
 }
