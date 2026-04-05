@@ -12,11 +12,11 @@ void setup() {
     ; // wait for serial port to connect. Needed for native USB port only
   }
 
-  Serial.write("Uno start to send");
+  Serial.println("Uno start to send");
 
   // set the data rate for the SoftwareSerial port
   mySerial.begin(19200);
-  mySerial.write("Uno tx");
+  mySerial.println("CH340E start to receive");
 }
 
 void loop() { // run over and over
@@ -24,6 +24,6 @@ void loop() { // run over and over
     Serial.write(mySerial.read());
   }
   if (Serial.available()) {
-    mySerial.write(Serial.read()); mySerial.write('\n');
+    mySerial.write(Serial.read());
   }
 }
