@@ -20,3 +20,5 @@ Chương trình Broadcast: baudrate: 19200, kênh 3, Tất cả module chọn br
 
 Arduino dùng Software Serial, nhưng ESP32 thì không. ESP32 có Zigbee và BLE. Tham khảo thêm bài viết hướng dẫn giao tiếp UART của ESP32: https://randomnerdtutorials.com/esp32-uart-communication-serial-arduino/
 available() = kiểm tra có dữ liệu nhận hay không
+
+Truyền thành công, nhưng không thể vừa truyền vừa nhận độc lập cùng 1 lúc.
