@@ -3,8 +3,8 @@
 */
 
 // Define the RX and TX pins for Serial 2
-#define RXD2 16   //D2-IO16
-#define TXD2 17   //D3-IO17
+#define RXD2 16  //D2-IO16
+#define TXD2 17  //D3-IO17
 // Define Baudrate for UART
 #define CC2530_BAUD 19200
 
@@ -20,7 +20,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(19200);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ;  // wait for serial port to connect. Needed for native USB port only
   }
   Serial.println("Esp32 start");
   // Start Serial 2 with the defined RX and TX pins and a baud rate of 9600
@@ -35,7 +35,8 @@ void loop() {
   //In ra serial monitor
   //Serial.print("Value: "); Serial.println(sensorValue);
   //Truyen du lieu den Uno
-  zigbeeSerial.print("Value: "); zigbeeSerial.println(sensorValue);
+  zigbeeSerial.print("Value: ");
+  zigbeeSerial.println(sensorValue);
   /*
   delay(100);
   //Nhan du lieu tu Uno   //Chua nhan duoc du lieu tu Uno
