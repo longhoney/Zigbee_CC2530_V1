@@ -30,8 +30,7 @@ void setup() {
   while (!zigbeeSerial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
-  Serial.println("Serial 2 started at 19200 baud rate");
-  zigbeeSerial.println("Serial 2 received at 19200 baud rate");
+  zigbeeSerial.println("ESP32 sent at 19200 baud rate");
 }
 
 void loop() {
