@@ -1,6 +1,6 @@
 Truyền thông giữa Vietduino ESP32, Arduino Uno R3 SMD và Maixduino (ESP32) thông qua mạng Zigbee. Các module tham gia: Module DHT11, Module LDR, MOdule LCD I2C, cảm biến siêu âm SR04, ...
 
-Vietduino ESP32, Maixduino (ESP32) giao tiếp TTL 3v3. Uno giao tiếp TTL 5v. Zigbee CC2530 V1 giao tiếp UART 3v3/5v (Tùy VCC). Vietduino ESP32, Arduino, Maixduino (ESP32) dùng Arduino IDE.
+Vietduino ESP32, Maixduino (ESP32) giao tiếp TTL 3v3. Uno giao tiếp TTL 5v. Zigbee CC2530 V1 giao tiếp UART 3v3/5v (Tùy VCC). Vietduino ESP32, Arduino, Maixduino (ESP32) dùng Arduino IDE. --> 2 module giao tiếp UART với nhau thông qua mạng không dây Zigbee.
 
 Zigbee giao tiếp UART với các vi điều khiển. Chọn baudrate: 19200, số kênh tùy theo chương trình mẫu, chế độ truyền tùy theo chương trình mẫu. Vietduino ESP32 có UART2, Arduino có SoftwareSerial, Maixduino ESP không có UART.
 
@@ -20,5 +20,6 @@ Chương trình Broadcast: baudrate: 19200, kênh 3, Tất cả module chọn br
 
 Arduino dùng Software Serial, nhưng ESP32 thì không. ESP32 có Zigbee và BLE. Tham khảo thêm bài viết hướng dẫn giao tiếp UART của ESP32: https://randomnerdtutorials.com/esp32-uart-communication-serial-arduino/
 available() = kiểm tra có dữ liệu nhận hay không
+--> Tôi cần quay về giao tiếp UART giữa 2 board vi điều khiển
 
 Truyền thành công, nhưng không thể vừa truyền vừa nhận độc lập cùng 1 lúc vì dùng hàm delay() giữa các lần truyền. Tôi chưa có sơ đồ minh họa hệ thống
